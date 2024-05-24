@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module SpreeStarter
   class Application < Rails::Application
-
+   
     config.to_prepare do
       # Load application's model / class decorators
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
@@ -37,5 +37,8 @@ module SpreeStarter
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.mission_control.jobs.base_controller_class = "Spree::Admin::BaseController"
+    
+    config.active_record.yaml_column_permitted_classes = [Symbol, Date, Time, ActiveSupport::TimeWithZone, ActiveSupport::TimeZone]
   end
+  
 end

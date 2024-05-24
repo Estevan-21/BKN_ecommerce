@@ -83,4 +83,6 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  database: spree_starter
+  host: localhost
+  username: postgres
